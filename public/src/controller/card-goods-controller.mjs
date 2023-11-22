@@ -69,31 +69,35 @@ export default class CardGoodsController {
   }
 
   async requestAPIInfo() {
-    const response = await fetch('assets/bienes.json');
-    const json = await response.json();
-    for (let i = 0; i < json.bienes.length; i++) {
-      for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
-        if (CardView.acceptedKeys.indexOf(key) === -1) {
-          delete json.bienes[i][key];
+    try {
+      const response = await fetch('http://127.0.0.1:8080/');
+      const json = await response.json();
+      for (let i = 0; i < json.bienes.length; i++) {
+        for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
+          if (CardView.acceptedKeys.indexOf(key) === -1) {
+            delete json.bienes[i][key];
+          }
+          if (key === 'localizacion') {
+            json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
+                `, long: ${json.bienes[i][key].long}`;
+          } else if (key === 'tipo') {
+            json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
+                `, épica: ${json.bienes[i][key]['época']}`;
+          }
         }
-        if (key === 'localizacion') {
-          json.bienes[i][key] = `lat: ${json.bienes[i][key].lat}` +
-              `, long: ${json.bienes[i][key].long}`;
-        } else if (key === 'tipo') {
-          json.bienes[i][key] = `Arquitectura: ${json.bienes[i][key].arquitectura}` +
-              `, épica: ${json.bienes[i][key]['época']}`;
-        }
+        const card = new CardWebcomp();
+        card.setAttribute('width', this.#view.getPlaceholdersWidth());
+        card.setAttribute('height', this.#view.getPlaceholdersHeight());
+        const score = new ScoreWebcomp();
+        card.insertIntoFoot(score);
+        card.updateContent(json.bienes[i]);
+        this.#view.insertContent({
+          domNode: card,
+          scoringObject: score.getScoringObject(),
+        });
       }
-      const card = new CardWebcomp();
-      card.setAttribute('width', this.#view.getPlaceholdersWidth());
-      card.setAttribute('height', this.#view.getPlaceholdersHeight());
-      const score = new ScoreWebcomp();
-      card.insertIntoFoot(score);
-      card.updateContent(json.bienes[i]);
-      this.#view.insertContent({
-        domNode: card,
-        scoringObject: score.getScoringObject(),
-      });
+    } catch (error) {
+      console.log('There was an error while fetching API request: ' + error);
     }
   }
 
