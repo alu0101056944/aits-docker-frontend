@@ -1,6 +1,6 @@
 {
   "name": "sytwc-sass",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Contains Sass exercises and a mockup webpage",
   "main": "index.js",
   "scripts": {
