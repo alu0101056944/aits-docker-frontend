@@ -24,7 +24,7 @@ export default class CardWebcomp extends HTMLElement {
     super();
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new CardController(this.#shadow);
-    console.log('WebComponent Card created.');
+    // console.log('Webcomponent Card created.');
   }
 
   /**
@@ -45,15 +45,15 @@ export default class CardWebcomp extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('WebComponent Card connected.');
+    // console.log('Webcomponent Card connected.');
   }
 
   disconnectedCallback() {
-    console.log('WebComponent Card disconnected.');
+    // console.log('Webcomponent Card disconnected.');
   }
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
-    console.log('Changed attribute ' + attributeName);
+    // console.log('Changed attribute ' + attributeName);
     if (attributeName === 'width') {
       this.#controller.setWidth(newValue);
     } else if (attributeName === 'height') {

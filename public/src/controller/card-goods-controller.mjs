@@ -70,8 +70,9 @@ export default class CardGoodsController {
 
   async requestAPIInfo() {
     try {
-      const response = await fetch('http://127.0.0.1:8080/');
+      const response = await fetch('http://localhost:8080/');
       const json = await response.json();
+      console.log('Able to read: ' + json);
       for (let i = 0; i < json.bienes.length; i++) {
         for (const key of Object.getOwnPropertyNames(json.bienes[i])) {
           if (CardView.acceptedKeys.indexOf(key) === -1) {

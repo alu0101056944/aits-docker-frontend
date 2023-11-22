@@ -25,7 +25,7 @@ export default class ScoreWebcomp extends HTMLElement {
     this.length = 6;
     this.#shadow = this.attachShadow({ mode: 'closed' });
     this.#controller = new ScoreController(this.#shadow);
-    console.log('WebComponent Score created.');
+    // console.log('Webcomponent Score created.');
   }
 
   getScoringObject() {
@@ -33,14 +33,14 @@ export default class ScoreWebcomp extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('WebComponent Score connected.');
+    // console.log('Webcomponent Score connected.');
   }
 
   disconnectedCallback() {
-    console.log('WebComponent Score disconnected.');
+    // console.log('Webcomponent Score disconnected.');
   }
 
   attributeChangedCallback(attributeName, oldValue, newValue) {
-    console.log('Changed attribute ' + attributeName);
+    // console.log('Changed attribute ' + attributeName);
   }
 }
