@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SYTWC Sass assignment</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer type="module" src="./src/main.mjs"></script>
+</head>
+<body>
+  <template id="card-goods-template">
+    <div class="placeholders">
+      <div class="placeholder">
+        <slot name="placeholder-slot"></slot>
+      </div>
+    </div>
+  </template>
+  <div class="base">
+    <header>
+      <div class="icondiv">
+        <img src="assets/logo.jpg" width="50px" height="50px" alt="Company logo">
+        <span>Logo de la empresa</span>
+      </div>
+      <div class="namediv">
+        <h3>Nombre de la empresa</h3>
+      </div>
+      <nav><h5>Navegación</h5></nav>
+    </header>
+    <main>
+      <div class="content">
+        <div class="feature">
+          <h2>Ejemplos de productos</h2>
+          <mb-cardgoods cardwidth="200" cardheight="150" length="4">
+            <mb-card slot="placeholder-slot-1">
+              <mb-score slot="card-foot-space-1"></mb-score>
+            </mb-card>
+          </mb-cardgoods>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="formdiv">
+          <h3>Subscribirse al boletin</h3>
+          <form>
+            <label class="row" for="name">Nombre</label>
+            <input class="row" type="text" id="name" name="name" required>
+    
+            <label class="row" for="email">Email</label>
+            <input class="row" type="email" id="email" name="email" required>
+    
+            <input class="row" type="button" value="Submit">
+          </form>
+        </div>
+        <div class="contactdiv">
+          <h5>Contacto</h5>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="feature">
+        <h5>Testimonios, clientes relevantes</h5>
+        <mb-cardgoods cardwidth="150" cardheight="150" length="5">
+          <mb-card slot="placeholder-slot-1">
+            <mb-score slot="card-foot-space-1"></mb-score>
+          </mb-card>
+          <mb-card slot="placeholder-slot-2">
+            <mb-score slot="card-foot-space-1"></mb-score>
+          </mb-card>
+          <mb-card slot="placeholder-slot-3">
+            <mb-score slot="card-foot-space-1"></mb-score>
+          </mb-card>
+          <mb-card slot="placeholder-slot-4">
+            <mb-score slot="card-foot-space-1"></mb-score>
+          </mb-card>
+          <mb-card slot="placeholder-slot-5">
+            <mb-score slot="card-foot-space-1"></mb-score>
+          </mb-card>
+          <mb-card slot="placeholder-slot-6">
+            <mb-score slot="card-foot-space-1"></mb-score>
+          </mb-card>
+        </mb-cardgoods>
+      </div>
+      <div class="garantydiv">
+        <h5>Garantías</h5>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

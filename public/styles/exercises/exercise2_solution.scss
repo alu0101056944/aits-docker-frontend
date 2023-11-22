@@ -1,0 +1,40 @@
+@mixin linkColors($colorBase, $colorHover) {
+  a {
+    color: $colorBase;
+    &:hover {
+      color: $colorHover;
+    }
+  }  
+}
+
+@mixin setupBackground($backgroundColor) {
+  background-color: $backgroundColor;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.header {
+  @include setupBackground(#531946);
+  @include linkColors(#fff, #095169);
+}
+
+.footer {
+  @include setupBackground(#30162B);
+  color: #fff;
+  @include linkColors(#095169, #fff);
+}
+
+.feature {
+  a {
+    @include setupBackground(#30162B);
+    color: #fff;
+    &:hover {
+      color: #531946;
+    }
+  }
+}
+
+.content {
+  @include setupBackground(#fff);
+  color: #222;
+}

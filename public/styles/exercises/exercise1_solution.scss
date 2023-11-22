@@ -1,0 +1,25 @@
+
+/* Assumming that the first header not being a class selector is NOT a typo. */
+
+@import './modules/change_link_colors.scss';
+
+header {
+  background-color: #531946;
+}
+
+
+.footer {
+  background-color: #30162B;
+  color: #fff;
+}
+
+.feature {
+  a {
+    background-color: #30162B;
+  }
+}
+
+.content {
+  background-color: #fff;
+  color: #222;
+}
