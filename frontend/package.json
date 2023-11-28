@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "sass --watch public/styles/:public/styles/",
-    "serve": "http-server -c-1"
+    "serve": "http-server --cors -c-1"
   },
   "repository": {
     "type": "git",
