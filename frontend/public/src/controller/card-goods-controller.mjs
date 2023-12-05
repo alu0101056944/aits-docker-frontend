@@ -70,7 +70,7 @@ export default class CardGoodsController {
 
   async requestAPIInfo() {
     try {
-      const response = await fetch('http://backendcontainer:8080/');
+      const response = await fetch('http://localhost:8080/data');
       const json = await response.json();
       for (let i = 0; i < json.bienes.length; i++) {
         for (const key of Object.getOwnPropertyNames(json.bienes[i])) {

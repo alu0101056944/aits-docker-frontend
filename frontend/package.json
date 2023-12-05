@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "sass --watch public/styles/:public/styles/",
-    "serve": "http-server --cors -c-1"
+    "serve": "node web-server/app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/alu0101056944/sytwc-sass#readme",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nocache": "^4.0.0"
   }
 }
