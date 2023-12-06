@@ -4,5 +4,5 @@ FROM node:21
 WORKDIR /home/frontend
 COPY ./frontend .
 RUN npm install
-EXPOSE 8080
+EXPOSE 8082
 CMD ["npm", "run", "serve"]
