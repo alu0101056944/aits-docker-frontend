@@ -1,20 +1,27 @@
 'use strict';
 
 import express from 'express';
+import path from 'path';
 import {fileURLToPath} from 'url';
 import cors from 'cors';
 import nocache from 'nocache';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Create and serve http server
 function main() {
   const app = express();
-  const PORT = 8080;
+  const PORT = 8082;
   app.set('port', PORT);
   app.use(cors());
   app.use(nocache());
 
+  const PATH_TO_ROOT = path.join(__dirname, '../public');
+  app.use(express.static(PATH_TO_ROOT));
+
   app.listen(PORT, 'localhost', () => {
-        console.log('Server listening at 0.0.0.0:' + PORT);
+        console.log('Server listening at localhost:' + PORT);
       });
 
   app.use(async (req, res, next) => {
@@ -30,16 +37,7 @@ function main() {
       });
 
   app.get('/data', async (req, res) => {
-        try {
-          // response.send(JSON.stringify(RESPONSE_CONTENT, null, 2));
-          const responseJson = await fetchData();
-          console.log('able to fetch from db');
-          res.json(response);
-        } catch (error) {
-          console.error('Could not fetch information from mongo database: ' + error);
-          console.error('Did not start express web server.');
-          response.status(500).send('Internal Server Error');
-        }
+        res.json(req.goods);
       });
 }
 
