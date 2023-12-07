@@ -20,7 +20,7 @@ function main() {
   // const PATH_TO_ROOT = path.join(__dirname, '../public');
   // app.use(express.static(PATH_TO_ROOT));
 
-  app.listen(PORT, 'localhost', () => {
+  app.listen(PORT, '0.0.0.0', () => {
         console.log('Server listening at localhost:' + PORT);
       });
 
