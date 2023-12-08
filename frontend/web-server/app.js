@@ -26,7 +26,7 @@ function main() {
 
   app.use(async (req, res, next) => {
         try {
-          const data = await fetch('http://backendcontainer:8080');
+          const data = await fetch('http://10.6.128.134:8080');
           const jsonData = await data.json();
           req.goods = jsonData;
           next();

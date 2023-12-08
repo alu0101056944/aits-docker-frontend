@@ -1,0 +1,6 @@
+#! /bin/bash
+
+docker rm frontendcontainer -f
+docker rmi frontendcontainer
+docker build -t frontend:latest .
+docker run --name frontendcontainer -p8082:8082 --network host frontend
